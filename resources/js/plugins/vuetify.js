@@ -22,6 +22,12 @@ export default createVuetify({
             rounded: 'lg'
         },
 
+        VAutocomplete: {
+            variant: 'outlined',
+            density: 'comfortable',
+            color: 'primary'
+        },
+
         VTextField: {
             variant: 'outlined',
             density: 'comfortable',
@@ -40,7 +46,7 @@ export default createVuetify({
             color: 'primary'
         },
 
-      
+
         VTooltip: {
             location: 'top'
         },

@@ -2,7 +2,7 @@
     <v-app id="inspire">
         <v-app-bar class="glass-shadow">
             <v-app-bar-title>
-                Welcome to Laravel
+                {{ $page.props.appName}}
             </v-app-bar-title>
 
             <v-spacer></v-spacer>
