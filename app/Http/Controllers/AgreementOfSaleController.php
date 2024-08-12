@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AgreementOfSale;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class AgreementOfSaleController extends Controller
 {
@@ -12,7 +13,10 @@ class AgreementOfSaleController extends Controller
      */
     public function index()
     {
-        //
+
+         return Inertia::render('Contracts',[
+             'contracts' => AgreementOfSale::where('is_cancelled',0)->with(['client','project','stand'])->get()
+         ]);
     }
 
     /**

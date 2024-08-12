@@ -25,5 +25,11 @@ class AdminController extends Controller
     public function clientContracts($client)
     {
             return AgreementOfSale::where('client_id')->get();
-     }
+    }
+
+    function cancelledContracts(){
+        return Inertia::render('CancelledContracts',[
+            'contracts' => AgreementOfSale::where('is_cancelled',1)->with(['client','project'])->get()
+        ]);
+    }
 }

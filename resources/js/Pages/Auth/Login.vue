@@ -28,7 +28,7 @@ const submit = () => {
 
      <Default>
          <form @submit.prevent="submit">
-            <v-card class="glass mx-auto" max-width="600">
+            <v-card class="glass-shadow mx-auto" max-width="500">
 
                 <v-card-text>
                     <h1>Login</h1>

@@ -13,24 +13,11 @@ class PaymentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $payments = Payment::orderBy('receipt_date','DESC')
-                ->with('client')
-                ->get();
-
-        if(count($payments) > 0){
-            foreach($payments as $payment){
-                if($payment->client != null){
-                     $payment->client->fullname = $payment->client->first_name .' '.$payment->client->middle_name.' ' .$payment->client->last_name;
-                }
-            }
-        }
-
-
         return Inertia::render('Payments', [
-            'payments' => $payments,
+            'payments' => Payment::orderBy('receipt_date','DESC')->with('client')->get(),
             'clients'  => Client::orderBy('first_name','DESC')->get(),
         ]);
     }

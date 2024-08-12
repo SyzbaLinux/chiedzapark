@@ -1,6 +1,6 @@
 <script  >
 import AppLayout from '@/Layouts/AppLayout.vue';
-import StatCard from "@/StatCard.vue";
+import StatCard from "@/Components/StatCard.vue";
 import moment from "moment";
 
 export default {
@@ -42,7 +42,7 @@ export default {
                   <v-col cols="6">
                       <StatCard
                           color="success"
-                          icon="mdi-account-group"
+                          icon="mdi-file-document-edit"
                           title="Active Contracts"
                           :num="$page.props.active"
                           :url="route('admin.contracts.index')"
@@ -51,7 +51,7 @@ export default {
                   <v-col cols="6">
                       <StatCard
                           color="error"
-                          icon="mdi-account-group"
+                          icon="mdi-account-cancel"
                           title="Cancelled Contracts"
                           :num="$page.props.cancelled"
                           :url="route('admin.cancelled.contracts')"

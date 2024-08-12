@@ -99,6 +99,12 @@ export default {
                 let url = new URL(stringG)
                 return url.pathname
             }
+        },
+
+        logout(){
+            this.$inertia.visit('/logout',{
+                method: 'POST',
+            });
         }
     }
 
@@ -137,7 +143,7 @@ export default {
                     :href="item.url"
                 >
                     <v-list-item
-                        :class="{ 'active-sidebar':$page.url == getPath(item.url) }"
+                        :class="{ 'active-sidebar':$page.url.includes(getPath(item.url)) }"
                     >
                         <template v-slot:prepend>
                             <v-icon :icon="item.icon"></v-icon>

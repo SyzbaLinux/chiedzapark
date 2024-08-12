@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AgreementOfSale;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -53,7 +54,15 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return Inertia::render('ViewProject',[
+            'project'    => $project->load([
+                                                'active.client',
+                                                'active.stand',
+                                                'cancelled.client',
+                                                'cancelled.stand',
+                                                'batches.rules'
+                                            ]),
+        ]);
     }
 
 

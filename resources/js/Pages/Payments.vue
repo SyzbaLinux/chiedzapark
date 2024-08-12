@@ -107,6 +107,17 @@
                 </v-card>
             </v-dialog>
 
+<!--            <v-data-table-server-->
+<!--                v-model:items-per-page="itemsPerPage"-->
+<!--                :headers="headers"-->
+<!--                :items="payments.data"-->
+<!--                :items-length="payments.total"-->
+<!--                :loading="loading"-->
+<!--                :search="search"-->
+<!--                item-value="name"-->
+<!--                @update:options="loadItems"-->
+<!--            ></v-data-table-server>-->
+
             <v-data-table
                 :items="$page.props.payments"
                 :headers="headers"
