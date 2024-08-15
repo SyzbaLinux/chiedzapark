@@ -32,7 +32,7 @@
                                     label="Select Client Name"
                                     prepend-inner-icon="mdi-account-group"
                                     :items="$page.props.clients"
-                                    item-title="fullname"
+                                    item-title="full_name"
                                     item-value="id"
                                     :rules="clientRules"
                                     :error-messages="$page.props.errors.client_id"
@@ -42,6 +42,8 @@
 
                             <v-col cols="12" md="6">
                                 <v-select
+                                    item-title="id"
+                                    item-value="id"
                                     :disabled="gettingContracts"
                                     v-model="form.agreement_of_sale_id"
                                     label="Please Select Client Contract"
@@ -171,7 +173,7 @@ export default {
             }),
             headers: [
                 { title: 'ID', key: 'id' },
-                { title: 'Client', key: 'client.fullname' },
+                { title: 'Client', key: 'client.full_name' },
                 { title: 'Date paid', key: 'receipt_date' },
                 { title: 'Contract', key: 'agreement_of_sale_id' },
                 { title: 'Receipt No', key: 'receipt_number' },

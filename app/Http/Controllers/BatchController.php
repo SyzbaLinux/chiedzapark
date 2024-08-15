@@ -31,7 +31,7 @@ class BatchController extends Controller
         return back()->with('message', [
             'type'        => 'success',
             'description' => '',
-            'title'        => 'Batch Deleted',
+            'title'        => 'Batch Added Successfully',
         ]);
     }
 

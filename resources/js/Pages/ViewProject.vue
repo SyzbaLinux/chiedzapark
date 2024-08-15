@@ -57,6 +57,7 @@
                                 <v-icon  >mdi-file-document-edit</v-icon>
                             </v-card>
                         </div>
+                        <v-progress-linear v-if="showActive" color="primary" height="10" :model-value="100" />
                     </v-card>
                 </v-col>
 
@@ -73,6 +74,7 @@
                                 <v-icon>mdi-account-cancel</v-icon>
                             </v-card>
                         </div>
+                        <v-progress-linear v-if="showCancelled" color="primary" height="10" :model-value="100" />
                     </v-card>
                 </v-col>
                 <v-col cols="4">
@@ -88,6 +90,7 @@
                                 <v-icon>mdi-account-cancel</v-icon>
                             </v-card>
                         </div>
+                        <v-progress-linear v-if="showBatch" color="primary" height="10" :model-value="100" />
                     </v-card>
                 </v-col>
             </v-row>
@@ -122,7 +125,7 @@
                       <v-btn @click="selectedBatch = null">
                           Back to Batch List
                       </v-btn>
-                      <v-dialog persistent max-width="600" v-model="dialogSelectedBatch">
+                      <v-dialog persistent max-width="700" v-model="dialogSelectedBatch">
                           <template v-slot:activator="{ props: activatorProps }">
                               <v-btn
                                   v-bind="activatorProps"
@@ -161,27 +164,39 @@
                                            :error-messages="$page.props.errors.installment_amount"
                                       />
 
-                                      <v-text-field
-                                          class="mt-5"
-                                           label="Calculate Penalty After"
-                                           v-model="batchSelectedForm.calculate_penalty_after"
-                                           :error-messages="$page.props.errors.calculate_penalty_after"
-                                           hint="Enter day of month. eg every 10th"
-                                           persistent-hint
-                                      />
-
-
-
-                                      <v-switch
-                                          :true-value="1"
-                                          :false-value="0"
-                                          color="primary"
-                                          class="mt-5"
-                                          label="Calculate Penalty for this Period?"
-                                          inset
-                                          v-model="batchSelectedForm.calculate_penalty"
-                                      />
-
+                                      <v-row>
+                                          <v-col>
+                                              <v-text-field
+                                                  class="mt-5"
+                                                  label="Penalty %"
+                                                  v-model="batchSelectedForm.penalty_percentage"
+                                                  :error-messages="$page.props.errors.penalty_percentage"
+                                                  hint="Default is 10%"
+                                                  persistent-hint
+                                              />
+                                          </v-col>
+                                          <v-col>
+                                              <v-text-field
+                                                  class="mt-5"
+                                                  label="Calculate Penalty After"
+                                                  v-model="batchSelectedForm.calculate_penalty_after"
+                                                  :error-messages="$page.props.errors.calculate_penalty_after"
+                                                  hint="Enter day of month. eg every 10th"
+                                                  persistent-hint
+                                              />
+                                          </v-col>
+                                          <v-col>
+                                              <v-switch
+                                                  :true-value="1"
+                                                  :false-value="0"
+                                                  color="primary"
+                                                  class="mt-5"
+                                                  label="Calculate Penalty for this Period?"
+                                                  inset
+                                                  v-model="batchSelectedForm.calculate_penalty"
+                                              />
+                                          </v-col>
+                                      </v-row>
                                   </v-card-text>
 
                                   <v-card-actions>
@@ -322,8 +337,14 @@ export default {
                 installment_amount:null,
                 calculate_penalty:1,
                 calculate_penalty_after:10,
+                penalty_percentage:10,
             })
         }
+    },
+
+
+    created(){
+        this.items = this.$page.props.project.active
     },
 
     methods:{
@@ -403,6 +424,7 @@ export default {
         editRule(rule){
             this.batchSelectedForm.id                      = rule.id;
             this.batchSelectedForm.project_id              = rule.project_id
+            this.batchSelectedForm.batch_id                = rule.batch_id
             this.batchSelectedForm.start_date              = rule.start_date
             this.batchSelectedForm.end_date                = rule.end_date
             this.batchSelectedForm.installment_amount      = rule.installment_amount

@@ -45,7 +45,7 @@ class PaymentController extends Controller
         }
 
         $agreement = AgreementOfSale::find($request->agreement_of_sale_id);
-        $stand     = AgreementOfSale::find($request->stand_id);
+        $stand     = AgreementOfSale::find($agreement->stand_id);
 
         $payment->project_id            = $agreement->project_id;
         $payment->client_id             = $request->client_id;

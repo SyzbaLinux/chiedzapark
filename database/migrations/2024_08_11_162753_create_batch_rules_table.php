@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->decimal('installment_amount',20,2);
             $table->boolean('calculate_penalty')->default(1);
+            $table->decimal('penalty_percentage',20,2)->default(10);
             $table->integer('calculate_penalty_after')->default(10);
             $table->timestamps();
         });

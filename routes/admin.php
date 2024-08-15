@@ -24,6 +24,7 @@ Route::group([
     Route::get('/cancelled-contracts', [AdminController::class,'cancelledContracts'])->name('cancelled.contracts');
     Route::resource('/payments', \App\Http\Controllers\PaymentController::class);
     Route::get('/reports', [AdminController::class,'report'])->name('report');
+    Route::get('/reports/generated', [AdminController::class,'generateReport'])->name('generateReport');
     Route::get('/users', [AdminController::class,'users'])->name('users');
     Route::get('/client-contracts/{client}', [AdminController::class,'clientContracts'])->name('clientContracts');
 });

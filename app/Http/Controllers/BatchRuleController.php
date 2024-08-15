@@ -31,12 +31,13 @@ class BatchRuleController extends Controller
         }
 
 
-        $batchrule->project_id = $request->project_id;
-        $batchrule->batch_id = $request->batch_id;
-        $batchrule->start_date = $request->start_date;
-        $batchrule->end_date = $request->end_date;
-        $batchrule->installment_amount = $request->installment_amount;
-        $batchrule->calculate_penalty = $request->calculate_penalty;
+        $batchrule->project_id              = $request->project_id;
+        $batchrule->batch_id                = $request->batch_id;
+        $batchrule->start_date              = $request->start_date;
+        $batchrule->end_date                = $request->end_date;
+        $batchrule->installment_amount      = $request->installment_amount;
+        $batchrule->calculate_penalty       = $request->calculate_penalty;
+        $batchrule->penalty_percentage      = $request->penalty_percentage;
         $batchrule->calculate_penalty_after = $request->calculate_penalty_after;
 
 

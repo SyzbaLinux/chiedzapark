@@ -36,10 +36,10 @@
  <style>
 
  .welcome{
-     background-image: url("/images/bg.jpg");
-     background-repeat: no-repeat;
-     background-size: cover;
-     background-position: center;
+     background-image: url("/images/bg.jpg") !important;
+     background-repeat: no-repeat  !important;
+     background-size: cover  !important;
+     background-position: center !important;
  }
 
  </style>
