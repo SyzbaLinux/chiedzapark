@@ -27,6 +27,12 @@ class AdminController extends Controller
          ]);
      }
 
+
+     public function users()
+     {
+         //To handle users
+     }
+
     public function clientContracts($client)
     {
             return AgreementOfSale::where('client_id',$client)->get();
@@ -123,14 +129,13 @@ class AdminController extends Controller
 
     public function resetSchedules($project){
 
-         $agreements = AgreementOfSale::where('project_id',$project)
-             ->where('is_cancelled',0)
-             ->get();
-
-         foreach ($agreements as $agreement){
-             $this->recreateSchedule($agreement);
-         }
-
+        AgreementOfSale::where('project_id', $project)
+            ->where('is_cancelled', 0)
+            ->chunk(100, function ($agreements) {
+                foreach ($agreements as $agreement) {
+                    $this->recreateSchedule($agreement);
+                }
+            });
     }
 
     public   function recreateSchedule($contract)

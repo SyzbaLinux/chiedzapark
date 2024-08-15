@@ -11,9 +11,9 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('register'), {
-        onFinish: () => form.reset('password', 'password_confirmation'),
-    });
+    // form.post(route('register'), {
+    //     onFinish: () => form.reset('password', 'password_confirmation'),
+    // });
 };
 </script>
 
@@ -24,7 +24,7 @@ const submit = () => {
 
 
         <form @submit.prevent="submit">
-            <v-card class="glass mx-auto" max-width="500">
+            <v-card class="glass-shadow mx-auto" max-width="500">
                 <v-card-text class="text-center mt-3">
                     <h1>Register</h1>
                 </v-card-text>
@@ -78,12 +78,12 @@ const submit = () => {
                 </v-card-text>
                 <v-card-actions>
                     <v-btn variant="flat" size="large" type="submit" :loading="form.processing">
-                        Register
+                        Create you Account
                     </v-btn>
                     <v-spacer/>
 
                     <InertiaLink :href="route('login')">
-                        <v-btn variant="text" >
+                        <v-btn variant="text"  >
                             Already registered?
                         </v-btn>
                     </InertiaLink>
