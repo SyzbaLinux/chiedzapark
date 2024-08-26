@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'System Adminstrator',
-            'email' => 'admin@chiedzapark.com',
+            'name' => 'System Administrator',
+            'email' => 'admin@demo.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('_@Pass_12345#'),
+            'password' => Hash::make('Pass_12345#'),
         ]);
     }
 }
