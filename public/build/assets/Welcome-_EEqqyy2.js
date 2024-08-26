@@ -1,0 +1,1 @@
+import{D as t}from"./Default-Ccr1oFAq.js";import{_ as o}from"./_plugin-vue_export-helper-DlAUqK2U.js";import"./VMain-hW_dP_KY.js";import"./index-Dgxb_B28.js";import"./app-_uukHOGF.js";import"./VSpacer-_AiO1WAQ.js";const r={layout:t};function e(p,s,a,c,m,n){return null}const $=o(r,[["render",e]]);export{$ as default};

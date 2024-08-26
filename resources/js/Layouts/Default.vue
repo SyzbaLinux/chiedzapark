@@ -19,11 +19,11 @@
                 </v-btn>
             </InertiaLink>
 
-            <InertiaLink :href="route('register')">
-                <v-btn>
-                    Register
-                </v-btn>
-            </InertiaLink>
+<!--            <InertiaLink :href="route('register')">-->
+<!--                <v-btn>-->
+<!--                    Register-->
+<!--                </v-btn>-->
+<!--            </InertiaLink>-->
         </v-app-bar>
 
         <v-main >

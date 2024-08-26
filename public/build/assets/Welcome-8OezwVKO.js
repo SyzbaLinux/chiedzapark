@@ -1,1 +1,0 @@
-import{D as t}from"./Default-CFEfj21t.js";import{_ as o}from"./_plugin-vue_export-helper-DlAUqK2U.js";import"./VMain-CXV3moGT.js";import"./index-DzAJrpfY.js";import"./app-DuLo4FY9.js";import"./VSpacer-v8bFGlyx.js";const r={layout:t};function e(p,s,a,c,m,n){return null}const $=o(r,[["render",e]]);export{$ as default};
